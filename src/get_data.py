@@ -13,7 +13,7 @@ def read_params(config_path):
     return config
 
 
-def get_data(config_path):
+def get_data_df(config_path):
     config = read_params(config_path)
 
     data_path = config["data_source"]["s3_source"]
@@ -21,9 +21,10 @@ def get_data(config_path):
 
     return df
 
+# extra comment
 
 if __name__ == '__main__':
     args_obj = argparse.ArgumentParser()
     args_obj.add_argument("--config", default="params.yaml")
     parsed_args = args_obj.parse_args()
-    data = get_data(config_path=parsed_args.config)
+    data = get_data_df(config_path=parsed_args.config)
