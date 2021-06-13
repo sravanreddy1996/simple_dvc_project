@@ -1,5 +1,6 @@
 import pytest
 
+
 class NotInRangeError(Exception):
     def __init__(self, message="value not in range"):
         self.message_ = message
@@ -13,3 +14,10 @@ def test_generic():
         raise NotInRangeError
     else:
         assert True
+
+
+def test_not_in_range():
+    a = 5
+    with pytest.raises(NotInRangeError):
+        if a not in range(10, 20):
+            raise NotInRangeError
